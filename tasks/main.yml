@@ -1,11 +1,17 @@
 ---
 # tasks file for ansible-role-python
+
+# Variable setup.
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
 - name: Fetch python/s
   unarchive:
     src: "{{ python_dev_download_url }}{{ item }}/Python-{{ item }}.tgz"
     dest: ~
   with_items: "{{ python_dev_versions }}"
   become: yes
+
 - name: Configure and install python/s
   command: "{{ item[1] }}"
   args:
