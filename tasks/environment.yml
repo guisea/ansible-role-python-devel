@@ -1,0 +1,7 @@
+---
+# environment tasks
+- name: Setup profile.d to load python
+  copy:
+    src: python.sh
+    dest: /etc/profile.d/python.sh
+    mode: u=rwx,g=rx,o=rx

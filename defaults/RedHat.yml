@@ -1,0 +1,12 @@
+---
+# defaults file for RedHat servers
+python_dev_dependencies:
+  - openssl-devel
+  - libffi-devel
+  - zlib-devel
+  - sqlite-devel
+  - gcc
+python_dev_wheelhouse: "{{ansible_env.HOME}}/.pip/wheelhouse"
+
+python_dev_default_version: 2.7
+
