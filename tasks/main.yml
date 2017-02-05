@@ -11,6 +11,11 @@
     state: installed
   with_items: "{{ python_dev_dependencies }}"
 
+- name: List python URLS to download
+  debug:
+    msg: "URL: {{ python_dev_download_url }}{{ item.version }}/Python-{{ item.version }}.tgz"
+  with_items: "{{ python_dev_versions }}"
+
 - name: Fetch python/s
   unarchive:
     src: "{{ python_dev_download_url }}/{{ item.version }}/Python-{{ item.version }}.tgz"
