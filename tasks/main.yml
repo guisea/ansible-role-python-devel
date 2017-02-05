@@ -5,6 +5,12 @@
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
+- name: Install dependencies
+  package:
+    name: "{{ item }}"
+    state: installed
+  with_items: "{{ python_dev_dependencies }}"
+
 - name: Fetch python/s
   unarchive:
     src: "{{ python_dev_download_url }}{{ item.version }}/Python-{{ item.version }}.tgz"
