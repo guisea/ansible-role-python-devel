@@ -25,4 +25,4 @@
 - name: Ensure pip activated
   command: "python{{ '.'.join(item.version)}} -m ensurepip"
   changed_when: false
-  beoome: true
+  become: true
