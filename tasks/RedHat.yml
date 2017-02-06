@@ -19,6 +19,7 @@
     name: "python{{ item.version }}u"
     state: installed
   become: true
+  with_items: "{{ python_dev_versions }}"
 
 
 
@@ -26,3 +27,4 @@
   command: "python{{ '.'.join(item.version)}} -m ensurepip"
   changed_when: false
   become: true
+  with_items: "{{ python_dev_versions }}"
