@@ -4,34 +4,35 @@
 # Variable setup.
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
+- include: "{{ ansible_os_family }}.yml"
 
-- name: Install dependencies
-  package:
-    name: "{{ item }}"
-    state: installed
-  with_items: "{{ python_dev_dependencies }}"
-
-- name: List python URLS to download
-  debug:
-    msg: "URL: {{ python_dev_download_url }}{{ item.version }}/Python-{{ item.version }}.tgz"
-  with_items: "{{ python_dev_versions }}"
-
-- name: Fetch python/s
-  unarchive:
-    src: "{{ python_dev_download_url }}/{{ item.version }}/Python-{{ item.version }}.tgz"
-    dest: /root/
-    remote_src: true
-  with_items: "{{ python_dev_versions }}"
-  become: yes
-
-- name: Configure and install python/s
-  command: "{{ item[1] }}"
-  args:
-    chdir: "/root/Python-{{ item[0].version }}"
-  with_nested:
-    - "{{ python_dev_versions }}"
-    - ["./configure --with-ensurepip=upgrade --prefix=/opt/pythons/usr/local --enable-optimizations",
-       "make",
-       "make altinstall"
-       ]
-  become: yes
+#- name: Install dependencies
+#  package:
+#    name: "{{ item }}"
+#    state: installed
+#  with_items: "{{ python_dev_dependencies }}"
+#
+#- name: List python URLS to download
+#  debug:
+#    msg: "URL: {{ python_dev_download_url }}{{ item.version }}/Python-{{ item.version }}.tgz"
+#  with_items: "{{ python_dev_versions }}"
+#
+#- name: Fetch python/s
+#  unarchive:
+#    src: "{{ python_dev_download_url }}/{{ item.version }}/Python-{{ item.version }}.tgz"
+#    dest: /root/
+#    remote_src: true
+#  with_items: "{{ python_dev_versions }}"
+#  become: yes
+#
+#- name: Configure and install python/s
+#  command: "{{ item[1] }}"
+#  args:
+#    chdir: "/root/Python-{{ item[0].version }}"
+#  with_nested:
+#    - "{{ python_dev_versions }}"
+#    - ["./configure --with-ensurepip=upgrade --prefix=/opt/pythons/usr/local --enable-optimizations",
+#       "make",
+#       "make altinstall"
+#       ]
+#  become: yes
