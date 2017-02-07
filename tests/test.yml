@@ -2,14 +2,14 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - role_under_test
+    - role: role_under_test
       python_dev_versions:
         - version: "36"
         - version: "35"
         - version: "34"
         - version: "27"
       when: ansible_os_family == "RedHat" and ansible_distribution_major_version == "6"
-    - role_under_test
+    - role: role_under_test
       python_dev_versions:
         - version: "36"
         - version: "35"
