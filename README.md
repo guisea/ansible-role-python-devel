@@ -1,6 +1,8 @@
 Role Name
 =========
 [![Build Status](https://travis-ci.org/guisea/ansible-role-python-devel.svg?branch=master)](https://travis-ci.org/guisea/ansible-role-python-devel)
+
+
 A brief description of the role goes here.
 
 Requirements
