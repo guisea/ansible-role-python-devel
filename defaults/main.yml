@@ -9,3 +9,4 @@ python_dev_pip:
   - tox
   - pytest
   - nose
+  - virtualenv
