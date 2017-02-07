@@ -24,7 +24,7 @@
 
 
 - name: Ensure pip activated
-  command: "python{{ '.'.join(item.version)[0:3]}} -m ensurepip"
+  command: "easy_install{{ '.'.join(item.version)[0:3]}} pip"
   changed_when: false
   become: true
   with_items: "{{ python_dev_versions }}"
