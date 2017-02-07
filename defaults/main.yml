@@ -2,6 +2,6 @@
 # defaults file for ansible-role-python
 python_dev_download_url: https://www.python.org/ftp/python/
 python_dev_versions:
-  - version: "36"
-  - version: "35"
-  - version: "34"
+  - version: "36u"
+  - version: "35u"
+  - version: "34u"
