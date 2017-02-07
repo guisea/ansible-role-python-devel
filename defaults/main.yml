@@ -5,3 +5,7 @@ python_dev_versions:
   - version: "36u"
   - version: "35u"
   - version: "34u"
+python_dev_pip:
+  - tox
+  - pytest
+  - nose
