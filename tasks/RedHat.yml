@@ -32,7 +32,7 @@
 - name: Install base dependencies (pip)
   pip:
     name: "{{ item[1] }}"
-    executable: "pip-{{ '.'.join(item[0].version)[0:3] }}"
+    executable: "pip{{ '.'.join(item[0].version)[0:3] }}"
   with_nested:
     - "{{ python_dev_versions }}"
     - "{{ python_dev_pip }}"
