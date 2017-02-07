@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
   remote_user: root
+  become: true
   roles:
     - role: role_under_test
       python_dev_versions:
