@@ -4,7 +4,7 @@
   yum: name=https://centos{{ ansible_distribution_major_version }}.iuscommunity.org/ius-release.rpm
   when: ansible_distribution == "CentOS"
   become: true
-https://centos6.iuscommunity.org/ius-release.rpm
+
 - name: Install IUS (RHEL) repo.
   yum: name=https://rhel{{ ansible_distribution_major_version }}.iuscommunity.org/ius-release.rpm
   when: ansible_distribution == "Red Hat Enterprise Linux"
